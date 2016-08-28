@@ -17,7 +17,7 @@ public class Input implements KeyListener, MouseListener
     
     public void tickInput()
     {
-        lastInputList = currentInputList;
+        lastInputList = new InputList(currentInputList);
         
         currentInputList = new InputList();
     }

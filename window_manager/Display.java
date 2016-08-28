@@ -13,7 +13,7 @@ public class Display extends JPanel
    
     public Display()
     {
-        
+        input = new Input();
     }
     
     public void tickInput()

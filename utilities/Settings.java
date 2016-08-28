@@ -20,6 +20,6 @@ public class Settings implements Serializable
     {
         windowDimensions = Toolkit.getDefaultToolkit().getScreenSize();
         isFullscreen = false;
-        isBorderless = true;
+        isBorderless = false;
     }
 }
