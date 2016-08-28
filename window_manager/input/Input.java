@@ -11,15 +11,15 @@ import java.awt.event.MouseListener;
 
 public class Input implements KeyListener, MouseListener
 {
-    private static InputList currentInputList;
+    private static InputList currentInputList = new InputList();
     
     public static InputList lastInputList = new InputList();
     
     public void tickInput()
     {
-        currentInputList = lastInputList;
+        lastInputList = currentInputList;
         
-        lastInputList = new InputList();
+        currentInputList = new InputList();
     }
     
     @Override
