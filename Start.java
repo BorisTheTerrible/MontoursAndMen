@@ -17,6 +17,7 @@ public class Start extends ThreadPlus
     
     public Start()
     {
+        //setSleepLength(50L); 
         start();
     }
     

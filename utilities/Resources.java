@@ -39,7 +39,7 @@ public class Resources
         }
         catch (Exception e)
         {
-            Start.SYSTEM.consolePrintStack(e);
+            SystemManager.consolePrintStack(e);
         }
     }
     

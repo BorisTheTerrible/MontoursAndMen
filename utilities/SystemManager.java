@@ -2,7 +2,7 @@ package montours_and_men.utilities;
 
 public class SystemManager
 {
-    private long tickCount = 0l;
+    private int tickCount = 0;
     private static long lastTimeMillis;
     
     public SystemManager()
@@ -27,11 +27,11 @@ public class SystemManager
         System.err.println(message);//Error console print
     }
     
-    public static void consolePrintStack(Exception e)
+    public static void consolePrintStack(Exception exception)
     {
-        consolePrintError(e.getLocalizedMessage());
+        consolePrintError(exception.getLocalizedMessage());
         
-        for(StackTraceElement element : e.getStackTrace())
+        for(StackTraceElement element : exception.getStackTrace())
         {
             consolePrintError(element.toString());
         }
@@ -48,8 +48,8 @@ public class SystemManager
         
         if((System.currentTimeMillis() - lastTimeMillis) >= 1000)
         {
-            consolePrint(((Long)tickCount).toString());
-            tickCount = 0l;
+            consolePrint(tickCount);
+            tickCount = 0;
             lastTimeMillis = System.currentTimeMillis();
         }
     }

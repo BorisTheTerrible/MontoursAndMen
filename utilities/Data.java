@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import montours_and_men.Start;
 
 public final class Data
 {
@@ -17,7 +16,7 @@ public final class Data
         {
             if (!file.createNewFile()) 
             {
-                Start.SYSTEM.consolePrintError("File already exists at " + file.getPath());
+                SystemManager.consolePrintError("File already exists at " + file.getPath());
                 return;
             }
 
@@ -30,7 +29,7 @@ public final class Data
         }
         catch (Exception e)
         {          
-            Start.SYSTEM.consolePrintStack(e);
+            SystemManager.consolePrintStack(e);
         }
     }
     
@@ -43,7 +42,7 @@ public final class Data
     {
         if(!file.exists())
         {
-            Start.SYSTEM.consolePrintError("Attempted to read file that doesn't exist at " + file.getPath());
+            SystemManager.consolePrintError("Attempted to read file that doesn't exist at " + file.getPath());
             return null;
         }
         
@@ -66,7 +65,7 @@ public final class Data
         } 
         catch (IOException e)
         {
-            Start.SYSTEM.consolePrintStack(e);
+            SystemManager.consolePrintStack(e);
         }
         finally
         {
@@ -79,7 +78,7 @@ public final class Data
             } 
             catch (IOException e)
             {
-                Start.SYSTEM.consolePrintStack(e);
+                SystemManager.consolePrintStack(e);
             }
         }
         

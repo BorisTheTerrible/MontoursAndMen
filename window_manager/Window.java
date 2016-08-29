@@ -29,10 +29,10 @@ public class Window extends JFrame
         
         if (settings.isFullscreen)
         {
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice myDevice = ge.getDefaultScreenDevice();
+            GraphicsEnvironment graphicsEnviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice graphicsDevice = graphicsEnviroment.getDefaultScreenDevice();
             
-            myDevice.setFullScreenWindow(this);
+            graphicsDevice.setFullScreenWindow(this);
         }
         
         setUndecorated(settings.isBorderless);//False for developing

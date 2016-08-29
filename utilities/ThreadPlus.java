@@ -6,25 +6,31 @@ public abstract class ThreadPlus implements Runnable
 {
     public final Thread thread;
     
-    public static volatile boolean shouldStop = false;
+    private volatile boolean shouldStop = false;
+    private volatile long sleepLength = 5L;
    
     public ThreadPlus()
     {
         thread = new Thread(this, "Default");
     }
 
-    public synchronized void start()
+    public void start()
     {
         thread.start();
     }
 
-    public synchronized void stop()
+    public void stop()
     {
         shouldStop = true;
     }
     
     abstract protected void tick();
 
+    protected void setSleepLength(long sleepLength)
+    {
+        this.sleepLength = sleepLength;
+    }
+    
     @Override
     public void run()
     {
@@ -34,13 +40,12 @@ public abstract class ThreadPlus implements Runnable
                 
             try
             {
-                thread.sleep(50L);//1000 miliseconds equals 1 second
+                Thread.sleep(sleepLength);//1000 miliseconds equals 1 second
             } 
-            catch (Exception e)
+            catch (Exception exception)
             {
-                e.printStackTrace();
+                SystemManager.consolePrintStack(exception);
             }
-
         }
 
     }

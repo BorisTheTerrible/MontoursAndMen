@@ -44,12 +44,12 @@ public class Location {
     }
     
     public int getRelativeY(){
-        int height = Start.resources.settings.windowHeight;
+        int height = Start.resources.settings.windowDimensions.height;
         return y*(height/1000);
     } 
     
     public int getRelativeX(){
-        int width = Start.resources.settings.windowWidth;
+        int width = Start.resources.settings.windowDimensions.width;
         return x*(width/1000);
     }
 }
