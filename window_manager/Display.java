@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class Display extends JPanel
 {
-    private Input input;
+    private final Input input;
    
     public Display()
     {

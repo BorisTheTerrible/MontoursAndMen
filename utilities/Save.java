@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -8,21 +8,25 @@ import java.io.File;
 import java.io.Serializable;
 import montours_and_men.game_manager.GameManager;
 
-public class Save implements Serializable {
+public class Save implements Serializable
+{
     
     public String name;
     
     private GameManager gameManager;
     
-    public Save(GameManager gm){
+    public Save(GameManager gm)
+    {
         
     }
     
-    public Save(File file){
+    public Save(File file)
+    {
         
     }
     
-    public GameManager getGameManager(){
+    public GameManager getGameManager()
+    {
         return gameManager;
     }
     

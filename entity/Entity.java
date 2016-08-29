@@ -12,11 +12,13 @@ public class Entity {
     
     public Location location = new Location();
     
-    public Entity(){
+    public Entity()
+    {
         
     }
     
-    public UUID getID(){
+    public UUID getID()
+    {
         return ID;
     }
     

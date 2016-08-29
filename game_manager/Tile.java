@@ -6,7 +6,8 @@ package montours_and_men.game_manager;
 
 import java.awt.Rectangle;
 
-public enum Tile {
+public enum Tile
+{
     
     GRASS();
     

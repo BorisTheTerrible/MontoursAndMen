@@ -4,6 +4,7 @@
  */
 package montours_and_men.entity;
 
-public class Player extends Entity {
+public class Player extends Entity
+{
     
 }
