@@ -66,4 +66,19 @@ public final class InputList
     {
         return mouseReleased.contains(mouseButton);
     }
+    
+    @Override
+    public String toString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        
+        stringBuilder.append(keyTyped.toString());
+        stringBuilder.append(keyPressed.toString());
+        stringBuilder.append(keyReleased.toString());
+        stringBuilder.append(mouseClicked.toString());
+        stringBuilder.append(mousePressed.toString());
+        stringBuilder.append(mouseReleased.toString());
+        
+        return stringBuilder.toString();
+    }
 }

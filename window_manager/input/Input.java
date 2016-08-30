@@ -8,18 +8,26 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import montours_and_men.utilities.SystemManager;
 
 public class Input implements KeyListener, MouseListener
 {
     private InputList currentInputList = new InputList();
     
-    public static InputList lastInputList = new InputList();
+    private static InputList lastInputList = new InputList();
     
     public void tickInput()
     {
         lastInputList = new InputList(currentInputList);
         
         currentInputList = new InputList();
+        
+        SystemManager.consolePrint(lastInputList);
+    }
+    
+    public static InputList getLastInputList()
+    {
+        return lastInputList;
     }
     
     @Override

@@ -7,7 +7,7 @@ public abstract class ThreadPlus implements Runnable
     public final Thread thread;
     
     private volatile boolean shouldStop = false;
-    private volatile long sleepLength = 5L;
+    private volatile long sleepLength = 10L;
    
     public ThreadPlus()
     {

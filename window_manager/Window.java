@@ -9,8 +9,8 @@ import montours_and_men.utilities.Settings;
 
 public class Window extends JFrame
 {
-    Settings settings = Start.resources.settings;
-    Display display;
+    private final Settings settings = Start.resources.settings;
+    private final Display display;
 
     public Window()
     {
@@ -42,6 +42,8 @@ public class Window extends JFrame
         display.setBounds(0, 0, settings.windowDimensions.width, settings.windowDimensions.height);
         
         add(display);
+        addKeyListener(display.input);
+        addMouseListener(display.input);
         
         setLocationRelativeTo(null);
         setVisible(true);
