@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 
 public class Input implements KeyListener, MouseListener
 {
-    private static InputList currentInputList = new InputList();
+    private InputList currentInputList = new InputList();
     
     public static InputList lastInputList = new InputList();
     

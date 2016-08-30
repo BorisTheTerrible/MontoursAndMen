@@ -9,11 +9,12 @@ import montours_and_men.window_manager.Window;
 
 public class Start extends ThreadPlus
 {
+    public static final Resources resources = new Resources();
+    
+    private static GameManager game;
+    
     private final SystemManager system = new SystemManager();
     private final Window window = new Window();
-    
-    public static final Resources resources = new Resources();
-    public static GameManager game;
     
     public Start()
     {
@@ -34,6 +35,11 @@ public class Start extends ThreadPlus
         
         window.tickGraphics();
         system.tick();
+    }
+    
+    public static GameManager getGameManager()
+    {
+        return game;
     }
     
     public static void main(String[] args)
