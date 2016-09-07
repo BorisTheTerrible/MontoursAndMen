@@ -5,13 +5,11 @@
 package montours_and_men.utilities;
 
 import java.awt.AlphaComposite;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-import montours_and_men.Start;
 import montours_and_men.game_manager.GameManager;
 
 public class Resources
@@ -21,26 +19,42 @@ public class Resources
     public BufferedImage playerImage;
     public BufferedImage grassImage;//100x100
     public BufferedImage startImage;
-    
-    public String classPath;
 
     public Resources()
     {
-        settings = new Settings();
+        String rootDirectory = getRootDirectory();
         
-        classPath = System.getProperty("java.class.path");//Gets class path to location of jar file
-        classPath += "/montours_and_men/resources/";//Adds the jar path to resources file
+        File settingsFile = new File(rootDirectory.concat("Settings.ser"));
         
         try
         {
-            playerImage = ImageIO.read(new File(classPath + "Player.png"));
-            grassImage = ImageIO.read(new File(classPath + "Grass+.png"));
-            startImage = ImageIO.read(new File(classPath + "Start.png"));
+            settings = (Settings)FileData.readObjectFile(settingsFile);
+        }
+        catch(NoObjectFile noObjectFile)
+        {
+            settings = new Settings();
+        }
+        
+        try
+        {
+            playerImage = ImageIO.read(new File(rootDirectory.concat("Player.png")));
+            grassImage = ImageIO.read(new File(rootDirectory.concat("Grass+.png")));
+            startImage = ImageIO.read(new File(rootDirectory.concat("Start.png")));
         }
         catch (Exception e)
         {
             SystemManager.consolePrintStack(e);
         }
+    }
+    
+    public static String getRootDirectory()
+    {
+        String rootDirectory;
+        
+        rootDirectory = System.getProperty("java.class.path");//Gets class path to location of jar file
+        rootDirectory += "/montours_and_men/resources/";//Adds the jar path to resources file
+        
+        return rootDirectory;
     }
     
     public void resizeImages()

@@ -22,7 +22,7 @@ public class Input implements KeyListener, MouseListener
         
         currentInputList = new InputList();
         
-        SystemManager.consolePrint(lastInputList);
+        //SystemManager.consolePrint(lastInputList);
     }
     
     public static InputList getLastInputList()
