@@ -50,8 +50,8 @@ public class SystemManager
         {
             consolePrint(tickCount);
             tickCount = 0;
-            lastTimeMillis = System.currentTimeMillis();
         }
+        
+        lastTimeMillis = System.currentTimeMillis();
     }
-    
 }
