@@ -5,11 +5,13 @@ package montours_and_men.game_manager;
 import java.util.ArrayList;
 import montours_and_men.game_manager.entity.Entity;
 import java.util.List;
+import montours_and_men.game_manager.entity.Player;
 
 public class GameManager
 {
+    //Player is not added to entities list
     public List<Entity> entities = new ArrayList<Entity>();
-    public Entity player = new Entity();
+    public Player player = new Player();
     
     public boolean frozen = false;
     
@@ -18,7 +20,6 @@ public class GameManager
     public GameManager()
     {
         entities.add(player);
-        entities.add(new Entity());
     }
     
     public void tick()

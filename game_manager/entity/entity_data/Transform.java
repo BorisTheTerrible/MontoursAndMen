@@ -6,27 +6,46 @@ package montours_and_men.game_manager.entity.entity_data;
 
 public class Transform {
 
-    private double x;
-    private double y;
-    private double rotation;
+    private double x = 0;
+    private double y = 0;
+    private double z = 0;
+    
+    private double rotationX = 0;
+    private double rotationY = 0;
 
     public Transform()
     {
-        x = 0.0;
-        y = 0.0;
-        rotation = 0.0;
+        
     }
     
-    public Transform(double y, double x, double rotation)
+    public Transform(double y, double x, double rotationX)
     {
         this.y = y;
         this.x = x;  
-        this.rotation = rotation;
+
+        this.rotationX = rotationX;
+    }
+    
+    public Transform(double y, double x, double z,  double rotationX, double rotationY)
+    {
+        this.y = y;
+        this.x = x;  
+        this.z = z;
+        
+        this.rotationX = rotationX;
+        this.rotationY = rotationY;
     }
 
+    public void moveTo(int moveToX, int moveToY)
+    {
+        z = moveToX;
+        y = moveToY;
+    }
+    
     public void move(int movementX, int movementY)
     {
-        
+        x += movementX;
+        y += movementY;
     }
     
     public double getX()
@@ -39,11 +58,18 @@ public class Transform {
         return y;
     }
     
-    public void rotate(double rotationAmmount)
+    public double getZ()
     {
-        double newRotation = rotation + rotationAmmount;
+        return z;
+    }
+    
+    public void rotate(double rotateX, double rotateY)
+    {
+        rotationX = rotationX + rotateX;
+        rotationY = rotationY + rotateY;
         
-        rotation = checkRotation(newRotation);
+        rotationX = checkRotation(rotationX);
+        rotationY = checkRotation(rotationY);
     }
     
     private double checkRotation(double rotationAmmount)
@@ -62,8 +88,13 @@ public class Transform {
         return rotationAmmount;
     }
     
-    public double getRotation()
+    public double getRotationX()
     {
-        return rotation;
+        return rotationX;
+    }
+    
+    public double getRotationY()
+    {
+        return rotationY;
     }
 }

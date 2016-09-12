@@ -10,7 +10,6 @@ import montours_and_men.game_manager.GameManager;
 
 public class Save implements Serializable
 {
-    
     public String name;
     
     private GameManager gameManager;
