@@ -16,7 +16,7 @@ public final class FileData
 {
     public static void writeObjectFile(File file, Object object)
     {
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         
         try
         {
@@ -28,7 +28,7 @@ public final class FileData
             return;
         }
         
-        ObjectOutputStream objectOutputStream = null;
+        ObjectOutputStream objectOutputStream;
         
         try
         {
@@ -42,7 +42,7 @@ public final class FileData
         }
     }
     
-    public static Object readObjectFile(File file) throws NoObjectFile
+    public static Object readObjectFile(File file) throws NoObjectFileException
     {
         Object object = null;
         FileInputStream fileInputStream = null;
@@ -53,7 +53,7 @@ public final class FileData
         }
         catch(FileNotFoundException fileNotFoundException)
         {
-            throw new NoObjectFile(fileNotFoundException);
+            throw new NoObjectFileException(fileNotFoundException);
         }
         
         ObjectInputStream objectInputStream = null;
@@ -68,14 +68,14 @@ public final class FileData
             } 
             catch (ClassNotFoundException classNotFoundException)
             {
-                throw new NoObjectFile(classNotFoundException);
+                throw new NoObjectFileException(classNotFoundException);
             }
             
             objectInputStream.close();
         }
         catch(IOException ioException)
         {
-            throw new NoObjectFile(ioException);
+            throw new NoObjectFileException(ioException);
         }
         
         return object;
@@ -101,7 +101,6 @@ public final class FileData
         catch (Exception exception)
         {          
             SystemManager.consolePrintStack(exception);
-            return;
         }
     }
     

@@ -1,4 +1,3 @@
-
 package montours_and_men;
 
 import montours_and_men.game_manager.GameManager;

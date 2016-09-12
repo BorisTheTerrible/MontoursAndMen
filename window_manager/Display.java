@@ -8,13 +8,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 import montours_and_men.window_manager.input.Input;
 import javax.swing.JPanel;
+import montours_and_men.window_manager.rendering.Renderer;
 
 public class Display extends JPanel
 {
+    private final Renderer renderer;
+    
     public final Input input;
    
     public Display()
     {
+        renderer = new Renderer();
         input = new Input();
     }
     
@@ -26,7 +30,6 @@ public class Display extends JPanel
     @Override
     public void paint(Graphics graphics)
     {
-        graphics.setColor(Color.BLUE);
-        graphics.fillRect(0, 0, getWidth(), getHeight());
+        renderer.paint(graphics);
     }
 }

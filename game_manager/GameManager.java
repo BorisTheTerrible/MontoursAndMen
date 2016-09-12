@@ -3,7 +3,7 @@
 package montours_and_men.game_manager;
 
 import java.util.ArrayList;
-import montours_and_men.entity.Entity;
+import montours_and_men.game_manager.entity.Entity;
 import java.util.List;
 
 public class GameManager
