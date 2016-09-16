@@ -19,7 +19,7 @@ public class GameManager
     
     public GameManager()
     {
-        entities.add(player);
+        
     }
     
     public void tick()

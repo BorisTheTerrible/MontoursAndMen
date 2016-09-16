@@ -5,40 +5,38 @@
 package montours_and_men.game_manager.entity.entity_data;
 
 public class Transform {
-
+    
+    //It should be noted that rotation is based off of a circle
+    //As such, facing the positive x is rotation 0, negative x is rotation 180, etc...
+    
     private double x = 0;
     private double y = 0;
-    private double z = 0;
     
-    private double rotationX = 0;
-    private double rotationY = 0;
+    //This is in degrees
+    private double rotation = 0;
 
     public Transform()
     {
         
     }
     
-    public Transform(double y, double x, double rotationX)
+    public Transform(double x, double y)
     {
+        this.x = x; 
         this.y = y;
-        this.x = x;  
-
-        this.rotationX = rotationX;
     }
     
-    public Transform(double y, double x, double z,  double rotationX, double rotationY)
+    public Transform(double x, double y, double rotation)
     {
+        this.x = x; 
         this.y = y;
-        this.x = x;  
-        this.z = z;
-        
-        this.rotationX = rotationX;
-        this.rotationY = rotationY;
+
+        this.rotation = rotation;
     }
 
     public void moveTo(int moveToX, int moveToY)
     {
-        z = moveToX;
+        x = moveToX;
         y = moveToY;
     }
     
@@ -57,19 +55,12 @@ public class Transform {
     {
         return y;
     }
-    
-    public double getZ()
+   
+    public void rotateInDegrees(double rotateX)
     {
-        return z;
-    }
-    
-    public void rotate(double rotateX, double rotateY)
-    {
-        rotationX = rotationX + rotateX;
-        rotationY = rotationY + rotateY;
+        rotation = rotation + rotateX;
         
-        rotationX = checkRotation(rotationX);
-        rotationY = checkRotation(rotationY);
+        rotation = checkRotation(rotation);
     }
     
     private double checkRotation(double rotationAmmount)
@@ -88,13 +79,8 @@ public class Transform {
         return rotationAmmount;
     }
     
-    public double getRotationX()
+    public double getRotationInDegrees()
     {
-        return rotationX;
-    }
-    
-    public double getRotationY()
-    {
-        return rotationY;
+        return rotation;
     }
 }

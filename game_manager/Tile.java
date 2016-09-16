@@ -7,7 +7,7 @@ package montours_and_men.game_manager;
 public enum Tile
 {
     
-    GRASS();
+    EMPTY(), WALL();
     
 }
 
