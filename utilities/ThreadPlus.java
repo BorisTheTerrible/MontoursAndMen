@@ -5,7 +5,7 @@ public abstract class ThreadPlus implements Runnable
 {
     public final Thread thread;
     
-    private volatile boolean shouldStop = false;
+    private volatile static boolean shouldStop = false;
     private volatile long sleepLength = 10L;
    
     public ThreadPlus()
@@ -18,12 +18,13 @@ public abstract class ThreadPlus implements Runnable
         thread.start();
     }
 
-    public void stop()
+    public static void stop()
     {
         shouldStop = true;
     }
     
     abstract protected void tick();
+    abstract protected void exitCleanup();
 
     protected void setSleepLength(long sleepLength)
     {
@@ -46,6 +47,8 @@ public abstract class ThreadPlus implements Runnable
                 SystemManager.consolePrintStack(exception);
             }
         }
-
+        
+        exitCleanup();
+        System.exit(0);
     }
 }

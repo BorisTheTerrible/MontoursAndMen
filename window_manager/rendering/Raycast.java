@@ -50,6 +50,8 @@ public final class Raycast
         {
             
         }
+        
+        length = 0;
     }
 }
     

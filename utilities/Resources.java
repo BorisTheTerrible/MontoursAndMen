@@ -40,6 +40,13 @@ public class Resources
         }
     }
     
+    public void saveSettings()
+    {
+        File settingsFile = new File(getRootDirectory().concat("Settings.ser"));
+        
+        FileData.writeObjectFile(settingsFile, settings);
+    }
+    
     public static String getRootDirectory()
     {
         String rootDirectory;

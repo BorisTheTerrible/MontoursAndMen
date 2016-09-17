@@ -45,7 +45,7 @@ public class Map
         
         int convertedAxis = (int)axis;
         
-        if()
+        //if()
         
             if(axis > convertedAxis)
             {

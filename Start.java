@@ -36,6 +36,12 @@ public class Start extends ThreadPlus
         system.tick();
     }
     
+    @Override
+    protected void exitCleanup()
+    {
+        resources.saveSettings();
+    }
+    
     public static GameManager getGameManager()
     {
         return game;
