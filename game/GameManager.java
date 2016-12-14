@@ -1,11 +1,11 @@
 
 
-package montours_and_men.game_manager;
+package montours_and_men.game;
 
 import java.util.ArrayList;
-import montours_and_men.game_manager.entity.Entity;
+import montours_and_men.game.entity.Entity;
 import java.util.List;
-import montours_and_men.game_manager.entity.Player;
+import montours_and_men.game.entity.Player;
 
 public class GameManager
 {

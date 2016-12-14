@@ -2,12 +2,12 @@
  *  All Rights Reserved by Johnathan Schemenaur
  */
 
-package montours_and_men.window_manager.rendering;
+package montours_and_men.window.rendering;
 
 import montours_and_men.Start;
-import montours_and_men.game_manager.GameManager;
-import montours_and_men.game_manager.Tile;
-import montours_and_men.game_manager.entity.entity_data.Transform;
+import montours_and_men.game.GameManager;
+import montours_and_men.game.Tile;
+import montours_and_men.game.entity.entity_data.Transform;
 
 public final class Raycast
 {

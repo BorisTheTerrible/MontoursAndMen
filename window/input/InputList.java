@@ -2,7 +2,7 @@
  *  All Rights Reserved by Johnathan Schemenaur
  */
 
-package montours_and_men.window_manager.input;
+package montours_and_men.window.input;
 
 import java.util.ArrayList;
 

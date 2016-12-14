@@ -6,7 +6,7 @@ package montours_and_men.utilities;
 
 import java.io.File;
 import java.io.Serializable;
-import montours_and_men.game_manager.GameManager;
+import montours_and_men.game.GameManager;
 
 public class Save implements Serializable
 {

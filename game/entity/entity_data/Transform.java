@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package montours_and_men.game_manager.entity.entity_data;
+package montours_and_men.game.entity.entity_data;
 
-public class Transform {
+import montours_and_men.network.packets.LocationPacket;
+
+public final class Transform {
     
     //It should be noted that rotation is based off of a circle
     //As such, facing the positive x is rotation 0, negative x is rotation 180, etc...
@@ -56,29 +58,36 @@ public class Transform {
         return y;
     }
    
+    //Explicity stated in degrees for clearity
     public void rotateInDegrees(double rotateX)
     {
         rotation = rotation + rotateX;
         
-        rotation = checkRotation(rotation);
+        //Makes sure rotation warps properly
+        rotation = checkRotationInDegrees(rotation);
     }
     
-    private double checkRotation(double rotationAmmount)
+    //Everytime transform is rotated,
+    //It should be checked to make it warps properly
+    
+    
+    private double checkRotationInDegrees(double rotationAmmount)
     {
         if(rotationAmmount >= 360)
         {
             rotationAmmount -= 360;
-            rotationAmmount = checkRotation(rotationAmmount);
+            rotationAmmount = checkRotationInDegrees(rotationAmmount);
         }
         else if(rotationAmmount < 0)
         {
             rotationAmmount = 360 - Math.abs(rotationAmmount);
-            rotationAmmount = checkRotation(rotationAmmount);
+            rotationAmmount = checkRotationInDegrees(rotationAmmount);
         }
         
         return rotationAmmount;
     }
     
+    //Explicity stated in degrees for clearity
     public double getRotationInDegrees()
     {
         return rotation;

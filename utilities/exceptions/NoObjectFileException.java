@@ -2,7 +2,7 @@
  *  All Rights Reserved by Johnathan Schemenaur
  */
 
-package montours_and_men.utilities;
+package montours_and_men.utilities.exceptions;
 
 public class NoObjectFileException extends Exception
 {

@@ -1,11 +1,14 @@
-package montours_and_men.window_manager;
+package montours_and_men.window;
 
 import java.awt.Color;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import montours_and_men.Start;
 import montours_and_men.utilities.Settings;
+import montours_and_men.utilities.SystemManager;
 
 public class Window extends JFrame
 {
@@ -24,7 +27,6 @@ public class Window extends JFrame
     private void intialize()
     {
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         
         if (settings.isFullscreen)
@@ -44,6 +46,28 @@ public class Window extends JFrame
         add(display);
         addKeyListener(display.input);
         addMouseListener(display.input);
+        
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+        ///*
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event)
+            {
+                Start.stop();
+            }
+        });
+        //*/
+        
+        Runtime.getRuntime().addShutdownHook(new Thread()
+        {
+            @Override
+            public void run()
+            {
+                SystemManager.consolePrint("Wat");
+                Start.stop();
+            }
+        });
         
         setLocationRelativeTo(null);
         setVisible(true);

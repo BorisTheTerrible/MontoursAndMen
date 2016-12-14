@@ -1,9 +1,10 @@
 package montours_and_men.utilities;
 
+import montours_and_men.utilities.exceptions.NoObjectFileException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-import montours_and_men.game_manager.GameManager;
+import montours_and_men.game.GameManager;
 
 public class Resources
 {

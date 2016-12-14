@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package montours_and_men.game_manager.entity;
+package montours_and_men.game.entity;
 
 import java.awt.Image;
-import montours_and_men.game_manager.entity.entity_data.Transform;
+import montours_and_men.game.entity.entity_data.Transform;
 import java.util.UUID;
 
 public class Entity

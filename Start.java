@@ -1,14 +1,22 @@
 package montours_and_men;
 
-import montours_and_men.game_manager.GameManager;
+import montours_and_men.game.GameManager;
+import montours_and_men.network.NetworkManager;
 import montours_and_men.utilities.Resources;
 import montours_and_men.utilities.SystemManager;
-import montours_and_men.utilities.ThreadPlus;
-import montours_and_men.window_manager.Window;
+import montours_and_men.utilities.ExtendedThread;
+import montours_and_men.window.Window;
 
-public class Start extends ThreadPlus
+public class Start extends ExtendedThread
 {
+    //Version is sent by int for ease of use
+    //it is in format 123456789 aka 123.456.789, Ex: 100120123 = 1.12.123
+    public static final int VERSION = 100100100;
+    public static final int CLIENT_PORT = 30001;
+    
     public static final Resources resources = new Resources();
+    
+    public static final NetworkManager networkManager = new NetworkManager();
     
     private static GameManager game;
     
@@ -39,6 +47,7 @@ public class Start extends ThreadPlus
     @Override
     protected void exitCleanup()
     {
+        SystemManager.consolePrint("Ayy lamo");
         resources.saveSettings();
     }
     

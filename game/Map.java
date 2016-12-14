@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package montours_and_men.game_manager;
+package montours_and_men.game;
 
-import montours_and_men.game_manager.entity.entity_data.Transform;
+import montours_and_men.game.entity.entity_data.Transform;
 
 public class Map
 {

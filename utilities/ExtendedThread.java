@@ -1,14 +1,14 @@
 package montours_and_men.utilities;
 
 
-public abstract class ThreadPlus implements Runnable
+public abstract class ExtendedThread implements Runnable
 {
     public final Thread thread;
     
     private volatile static boolean shouldStop = false;
     private volatile long sleepLength = 10L;
    
-    public ThreadPlus()
+    public ExtendedThread()
     {
         thread = new Thread(this, "Default");
     }
