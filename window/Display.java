@@ -4,13 +4,9 @@
 
 package montours_and_men.window;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import montours_and_men.window.input.Input;
 import javax.swing.JPanel;
-import montours_and_men.Start;
-import montours_and_men.utilities.SystemManager;
-import montours_and_men.utilities.ExtendedThread;
 import montours_and_men.window.rendering.Renderer;
 
 public class Display extends JPanel
