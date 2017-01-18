@@ -17,7 +17,7 @@ public final class Raycast
     
     private final GameManager gameManager = Start.getGameManager();
     
-    private final double length;
+    private final double length = 0;
     
     public Raycast(Transform transform, double rotationToAdd)
     {
@@ -51,7 +51,6 @@ public final class Raycast
             
         }
         
-        length = 0;
     }
 }
     

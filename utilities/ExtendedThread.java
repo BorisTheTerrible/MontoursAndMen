@@ -31,6 +31,8 @@ public abstract class ExtendedThread implements Runnable
         this.sleepLength = sleepLength;
     }
     
+    
+    //Theoretically should not use thread, should be replaced by ScheduledExecutorService
     @Override
     public void run()
     {

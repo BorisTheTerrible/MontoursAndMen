@@ -2,8 +2,14 @@ package montours_and_men.utilities;
 
 public class SystemManager
 {
+    //Used to count the number of ticks per second
     private int tickCount = 0;
+    //Used to determine the time since the last SystemManager tick
     private static long lastTimeMillis;
+    //Used to determine if a second has passed
+    //Used to count number of ticks per second
+    //Set to current time millis once 1000 millis has passed.
+    private static long lastSecondTimeMillis;
     
     public SystemManager()
     {
@@ -37,6 +43,7 @@ public class SystemManager
         }
     }
     
+    //Time since last SystemManager tick
     public static synchronized long getDeltaTime()
     {
         return (System.currentTimeMillis() - lastTimeMillis);
@@ -46,10 +53,15 @@ public class SystemManager
     {       
         tickCount++;
         
-        if((System.currentTimeMillis() - lastTimeMillis) >= 1000)
+        //Adds elapsed time since last tick
+        lastSecondTimeMillis += System.currentTimeMillis() - lastTimeMillis;
+        
+        //If the elapsed time is longer than a second
+        if(lastSecondTimeMillis >= 1000)
         {
             consolePrint(tickCount);
             tickCount = 0;
+            lastSecondTimeMillis = 0;
         }
         
         lastTimeMillis = System.currentTimeMillis();

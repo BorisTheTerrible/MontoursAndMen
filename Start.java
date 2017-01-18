@@ -44,6 +44,7 @@ public class Start extends ExtendedThread
         system.tick();
     }
     
+    //This should be called whenever the game is exited
     @Override
     protected void exitCleanup()
     {

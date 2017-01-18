@@ -17,6 +17,7 @@ public class Window extends JFrame
 
     public Window()
     {
+        //Sets name of window
         super("Mountours - And - Men");
         
         display = new Display();
@@ -32,12 +33,14 @@ public class Window extends JFrame
         if (settings.isFullscreen)
         {
             GraphicsEnvironment graphicsEnviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            //Theoretically gets the current used screen
             GraphicsDevice graphicsDevice = graphicsEnviroment.getDefaultScreenDevice();
             
             graphicsDevice.setFullScreenWindow(this);
         }
         
-        setUndecorated(settings.isBorderless);//False for developing
+        //Sets if the window has a border or not
+        setUndecorated(settings.isBorderless);
         
         setSize(settings.windowDimensions);
         display.setSize(settings.windowDimensions);
@@ -49,16 +52,17 @@ public class Window extends JFrame
         
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
-        ///*
-        addWindowListener(new WindowAdapter() {
+        //This should be called when the window is closed
+        addWindowListener(new WindowAdapter()
+        {
             @Override
             public void windowClosing(WindowEvent event)
             {
                 Start.stop();
             }
         });
-        //*/
         
+        //This should be called the the application quitted
         Runtime.getRuntime().addShutdownHook(new Thread()
         {
             @Override

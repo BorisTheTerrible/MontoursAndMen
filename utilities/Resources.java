@@ -8,6 +8,7 @@ import montours_and_men.game.GameManager;
 
 public class Resources
 {
+    //Settings file should be serialized and saved whenver the game exits
     public Settings settings;
     
     public BufferedImage playerImage;
@@ -24,6 +25,7 @@ public class Resources
         {
             settings = (Settings)FileData.readObjectFile(settingsFile);
         }
+        //Called if the file doesn't exist, it then creates a new file
         catch(NoObjectFileException noObjectFileException)
         {
             settings = new Settings();
@@ -52,14 +54,11 @@ public class Resources
     {
         String rootDirectory;
         
-        rootDirectory = System.getProperty("java.class.path");//Gets class path to location of jar file
-        rootDirectory = rootDirectory.concat("/montours_and_men/resources/");//Adds the jar path to resources file
+        //Gets class path to location of jar file
+        rootDirectory = System.getProperty("java.class.path");
+        //Adds the jar path to resources file
+        rootDirectory = rootDirectory.concat("/montours_and_men/resources/");
         
         return rootDirectory;
-    }
-
-    public void writeSave(GameManager gm, String name)
-    {
-        
     }
 }
