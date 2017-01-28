@@ -4,13 +4,8 @@
  */
 package montours_and_men.game.entity.entity_data;
 
-import montours_and_men.network.packets.LocationPacket;
-
-public final class Transform {
-    
-    //It should be noted that rotation is based off of a circle
-    //As such, facing the positive x is rotation 0, negative x is rotation 180, etc...
-    
+public final class Transform
+{ 
     private double x = 0;
     private double y = 0;
     
@@ -36,6 +31,29 @@ public final class Transform {
         this.rotation = rotation;
     }
 
+    public double getX()
+    {
+        return x;
+    }
+    
+    public double getY()
+    {
+        return y;
+    }
+     
+    public double getRotationInDegrees()
+    {
+        return rotation;
+    }
+    
+    public void set(Transform transform)
+    {
+        x = transform.x;
+        y = transform.y;
+        
+        rotation = transform.rotation;
+    }
+    
     public void moveTo(int moveToX, int moveToY)
     {
         x = moveToX;
@@ -48,36 +66,28 @@ public final class Transform {
         y += movementY;
     }
     
-    public double getX()
-    {
-        return x;
-    }
-    
-    public double getY()
-    {
-        return y;
-    }
-   
-    //Explicity stated in degrees for clearity
     public void rotateInDegrees(double rotateX)
     {
-        rotation = rotation + rotateX;
+        double newRotation = rotation + rotateX;
         
         //Makes sure rotation warps properly
-        rotation = checkRotationInDegrees(rotation);
+        rotation = checkRotationInDegrees(newRotation);
     }
     
     //Everytime transform is rotated,
-    //It should be checked to make it warps properly
-    
-    
+    //It should be checked to make it wrap properly 
     private double checkRotationInDegrees(double rotationAmmount)
     {
+        //If it is over 360 degrees, subtract 360 degress
+        //Then recursively check it again
         if(rotationAmmount >= 360)
         {
             rotationAmmount -= 360;
             rotationAmmount = checkRotationInDegrees(rotationAmmount);
         }
+        //If it is under 0 degrees, it wraps around to 360
+        //The wrapped rotation will be 360 subtracted by the absolute value of the rotation
+        //Then recursively checks it again
         else if(rotationAmmount < 0)
         {
             rotationAmmount = 360 - Math.abs(rotationAmmount);
@@ -85,11 +95,5 @@ public final class Transform {
         }
         
         return rotationAmmount;
-    }
-    
-    //Explicity stated in degrees for clearity
-    public double getRotationInDegrees()
-    {
-        return rotation;
     }
 }

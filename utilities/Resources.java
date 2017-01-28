@@ -1,10 +1,10 @@
 package montours_and_men.utilities;
 
-import montours_and_men.utilities.exceptions.NoObjectFileException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import montours_and_men.game.GameManager;
+import montours_and_men.utilities.exceptions.ReadSerializedFileException;
 
 public class Resources
 {
@@ -26,7 +26,7 @@ public class Resources
             settings = (Settings)FileData.readObjectFile(settingsFile);
         }
         //Called if the file doesn't exist, it then creates a new file
-        catch(NoObjectFileException noObjectFileException)
+        catch(ReadSerializedFileException readSerializedFileException)
         {
             settings = new Settings();
         }

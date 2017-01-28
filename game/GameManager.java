@@ -11,11 +11,12 @@ public class GameManager
 {
     //Player is not added to entities list
     public List<Entity> entities = new ArrayList<Entity>();
-    public Player player = new Player();
+    public Player player;
     
+    //True is the game is frozen or paused
     public boolean frozen = false;
     
-    public Map map = new Map(20, 20);
+    public Map map;
     
     public GameManager()
     {

@@ -1,6 +1,5 @@
 package montours_and_men.utilities;
 
-import montours_and_men.utilities.exceptions.NoObjectFileException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,9 +11,11 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import montours_and_men.utilities.exceptions.ReadSerializedFileException;
 
 public final class FileData
 {
+    //File is actual file location to save, Object is object to serialize
     public static void writeObjectFile(File file, Object object)
     {
         FileOutputStream fileOutputStream;
@@ -43,7 +44,7 @@ public final class FileData
         }
     }
     
-    public static Object readObjectFile(File file) throws NoObjectFileException
+    public static Object readObjectFile(File file) throws ReadSerializedFileException
     {
         Object object = null;
         FileInputStream fileInputStream = null;
@@ -54,7 +55,7 @@ public final class FileData
         }
         catch(FileNotFoundException fileNotFoundException)
         {
-            throw new NoObjectFileException(fileNotFoundException);
+            throw new ReadSerializedFileException(fileNotFoundException);
         }
         
         ObjectInputStream objectInputStream = null;
@@ -69,14 +70,14 @@ public final class FileData
             } 
             catch (ClassNotFoundException classNotFoundException)
             {
-                throw new NoObjectFileException(classNotFoundException);
+                throw new ReadSerializedFileException(classNotFoundException);
             }
             
             objectInputStream.close();
         }
         catch(IOException ioException)
         {
-            throw new NoObjectFileException(ioException);
+            throw new ReadSerializedFileException(ioException);
         }
         
         return object;
@@ -86,6 +87,7 @@ public final class FileData
     {
         try
         {
+            //Checks if the file can be created and that it doesn't already exists
             if (!file.createNewFile()) 
             {
                 SystemManager.consolePrintError("File already exists at " + file.getPath());
@@ -107,23 +109,26 @@ public final class FileData
     
     public static StringBuilder readFile(File file)
     {
+        //Checks to make sure the file exists
         if(!file.exists())
         {
             SystemManager.consolePrintError("Attempted to read file that doesn't exist at " + file.getPath());
             return null;
         }
         
+        //Used to store the read file text
         StringBuilder builder = new StringBuilder();
         
         BufferedReader bufferedReader = null;
         
         try
         {
-            //read from file
+            //Stores the current read line
             String currentLine;
 
             bufferedReader = new BufferedReader(new FileReader(file.getPath()));
 
+            //Checks if the read line isn't null
             while ((currentLine = bufferedReader.readLine()) != null)
             {
                 builder.append(currentLine);

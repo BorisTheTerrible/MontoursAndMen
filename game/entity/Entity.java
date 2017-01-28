@@ -5,30 +5,32 @@
 package montours_and_men.game.entity;
 
 import java.awt.Image;
+import montours_and_men.game.entity.entity_data.SpriteController;
 import montours_and_men.game.entity.entity_data.Transform;
-import java.util.UUID;
 
 public class Entity
 {
-    private final UUID ID = UUID.randomUUID();
-    private final Transform transform = new Transform();
-    private Image sprite;
+    //id and transform are always provided by the server
+    protected final String id;
+    protected Transform transform;
+    protected SpriteController spriteController;
     
-    public Entity()
+    protected final int entityType;
+    
+    public Entity(int entityType, String id, Transform transform)
     {
-        
+        this.entityType = entityType;
+        this.id = id;
+        this.transform = transform;
     }
     
-    public UUID getID()
+    public String getID()
     {
-        return ID;
+        return id;
     }
     
     public Transform getTransform()
     {
         return transform;
     }
-    
-    
-    
 }

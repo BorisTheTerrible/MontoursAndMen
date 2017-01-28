@@ -6,8 +6,6 @@ package montours_and_men.network;
 
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import montours_and_men.network.packets.HandshakePacket;
 import montours_and_men.utilities.SystemManager;
 
