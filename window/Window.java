@@ -58,6 +58,7 @@ public class Window extends JFrame
             @Override
             public void windowClosing(WindowEvent event)
             {
+                SystemManager.consolePrint("Wat1");
                 Start.stop();
             }
         });
@@ -68,7 +69,7 @@ public class Window extends JFrame
             @Override
             public void run()
             {
-                SystemManager.consolePrint("Wat");
+                SystemManager.consolePrint("Wat2");
                 Start.stop();
             }
         });

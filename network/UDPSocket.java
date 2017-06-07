@@ -15,12 +15,9 @@ import montours_and_men.utilities.SystemManager;
 
 public final class UDPSocket
 {
-    DatagramSocket datagramSocket;
-    
-    private final InetAddress receiverAddress;
-    private final int receiverPort;
+    private DatagramSocket datagramSocket;
 
-    public UDPSocket(InetAddress receiverAddress, int receiverPort) throws SocketException
+    public UDPSocket(InetAddress serverAddress, int serverPort) throws SocketException
     {
         try
         {
@@ -33,9 +30,6 @@ public final class UDPSocket
             
             throw socketException;
         }
-        
-        this.receiverAddress = receiverAddress;
-        this.receiverPort = receiverPort;
     }
     
     public void send(Packet packet)
@@ -44,8 +38,8 @@ public final class UDPSocket
         (
                 packet.getBytes(), 
                 packet.getBytes().length,
-                receiverAddress, 
-                receiverPort
+                datagramSocket.getInetAddress(), 
+                datagramSocket.getPort()
         );
         
         try

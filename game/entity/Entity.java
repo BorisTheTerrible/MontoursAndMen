@@ -4,7 +4,6 @@
  */
 package montours_and_men.game.entity;
 
-import java.awt.Image;
 import montours_and_men.game.entity.entity_data.SpriteController;
 import montours_and_men.game.entity.entity_data.Transform;
 

@@ -11,7 +11,7 @@ public class Start extends ExtendedThread
 {
     //Version is sent by int for ease of use
     //it is in format 123456789 aka 123.456.789, Ex: 100120123 = 1.12.123
-    public static final int VERSION = 100100100;
+    public static final int VERSION = 100000000;
     public static final int CLIENT_PORT = 30001;
     
     public static final Resources resources = new Resources();
@@ -46,7 +46,7 @@ public class Start extends ExtendedThread
     
     //This should be called whenever the game is exited
     @Override
-    protected void exitCleanup()
+    public void exitCleanup()
     {
         SystemManager.consolePrint("Ayy lamo");
         resources.saveSettings();

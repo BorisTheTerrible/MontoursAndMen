@@ -51,6 +51,5 @@ public abstract class ExtendedThread implements Runnable
         }
         
         exitCleanup();
-        System.exit(0);
     }
 }
