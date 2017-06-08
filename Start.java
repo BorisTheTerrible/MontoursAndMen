@@ -9,11 +9,6 @@ import montours_and_men.window.Window;
 
 public class Start extends ExtendedThread
 {
-    //Version is sent by int for ease of use
-    //it is in format 123456789 aka 123.456.789, Ex: 100120123 = 1.12.123
-    public static final int VERSION = 100000000;
-    public static final int CLIENT_PORT = 30001;
-    
     public static final Resources resources = new Resources();
     
     public static final NetworkManager networkManager = new NetworkManager();
@@ -25,7 +20,8 @@ public class Start extends ExtendedThread
     
     public Start()
     {
-        //setSleepLength(10L); 
+        networkManager.tryEstablishConnection("127.0.0.1", 30000);
+        
         start();
     }
     
@@ -42,14 +38,6 @@ public class Start extends ExtendedThread
         
         window.tickGraphics();
         system.tick();
-    }
-    
-    //This should be called whenever the game is exited
-    @Override
-    public void exitCleanup()
-    {
-        SystemManager.consolePrint("Ayy lamo");
-        resources.saveSettings();
     }
     
     public static GameManager getGameManager()

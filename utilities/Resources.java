@@ -8,7 +8,6 @@ import montours_and_men.utilities.exceptions.ReadSerializedFileException;
 
 public class Resources
 {
-    //Settings file should be serialized and saved whenver the game exits
     public Settings settings;
     
     public BufferedImage playerImage;
@@ -31,6 +30,8 @@ public class Resources
             settings = new Settings();
         }
         
+        saveSettings();
+        
         try
         {
             playerImage = ImageIO.read(new File(rootDirectory.concat("Player.png")));
@@ -43,6 +44,7 @@ public class Resources
         }
     }
     
+    //Settings file should be saved everytime it is changed    
     public void saveSettings()
     {
         File settingsFile = new File(getRootDirectory().concat("Settings.ser"));

@@ -24,7 +24,6 @@ public abstract class ExtendedThread implements Runnable
     }
     
     abstract protected void tick();
-    abstract protected void exitCleanup();
 
     protected void setSleepLength(long sleepLength)
     {
@@ -49,7 +48,5 @@ public abstract class ExtendedThread implements Runnable
                 SystemManager.consolePrintStack(exception);
             }
         }
-        
-        exitCleanup();
     }
 }

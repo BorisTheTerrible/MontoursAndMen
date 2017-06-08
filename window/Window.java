@@ -33,6 +33,7 @@ public class Window extends JFrame
         if (settings.isFullscreen)
         {
             GraphicsEnvironment graphicsEnviroment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            
             //Theoretically gets the current used screen
             GraphicsDevice graphicsDevice = graphicsEnviroment.getDefaultScreenDevice();
             
@@ -50,29 +51,7 @@ public class Window extends JFrame
         addKeyListener(display.input);
         addMouseListener(display.input);
         
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        
-        //This should be called when the window is closed
-        addWindowListener(new WindowAdapter()
-        {
-            @Override
-            public void windowClosing(WindowEvent event)
-            {
-                SystemManager.consolePrint("Wat1");
-                Start.stop();
-            }
-        });
-        
-        //This should be called the the application quitted
-        Runtime.getRuntime().addShutdownHook(new Thread()
-        {
-            @Override
-            public void run()
-            {
-                SystemManager.consolePrint("Wat2");
-                Start.stop();
-            }
-        });
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         setLocationRelativeTo(null);
         setVisible(true);

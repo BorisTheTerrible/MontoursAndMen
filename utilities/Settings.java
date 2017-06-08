@@ -6,7 +6,10 @@ import java.io.Serializable;
 
 public class Settings implements Serializable
 {
-    private static final long serialVersionUID = 1l;
+    //Version is sent by int for ease of use
+    //it is in format 123456789 aka 123.456.789, Ex: 100120123 = 1.12.123
+    public static final int VERSION = 100000000;
+    public static final int CLIENT_PORT = 30001;
     
     public Dimension windowDimensions;
     
@@ -21,11 +24,6 @@ public class Settings implements Serializable
         isFullscreen = false;
         isBorderless = false;
         fieldOfView = 90;
-    }
-    
-    public static long getCurrentSerialVersionUID()
-    {
-        return serialVersionUID;
     }
     
     @Override

@@ -7,6 +7,7 @@ package montours_and_men.network.packets;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import montours_and_men.Start;
+import montours_and_men.utilities.Settings;
 
 public final class HandshakePacket extends Packet
 {
@@ -22,7 +23,7 @@ public final class HandshakePacket extends Packet
         super(5);
         
         this.username = username;
-        version = Start.VERSION;
+        version = Settings.VERSION;
         isBigEndian = true;
     }
     
