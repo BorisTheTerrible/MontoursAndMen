@@ -2,6 +2,7 @@
 
 package montours_and_men.game;
 
+import montours_and_men.game.Map.Map;
 import java.util.ArrayList;
 import montours_and_men.game.entity.Entity;
 import java.util.List;
@@ -11,15 +12,13 @@ import montours_and_men.game.entity.Player;
 public class GameManager
 {
     //Player is not added to entities list
-    public List<Entity> entities = new ArrayList<Entity>();
-    public Player player;
-    
-    //Queue receivedMessages = new Queue();
+    private List<Entity> entities = new ArrayList<Entity>();
+    private Player player;
     
     //True is the game is frozen or paused
-    public boolean frozen = false;
+    private boolean isFrozen = false;
     
-    public Map map;
+    private Map map;
     
     /*
       Since this game is only online, GameManager is only instantiated when
@@ -36,5 +35,29 @@ public class GameManager
     {
         
     }
+
+    public List<Entity> getEntities()
+    {
+        return entities;
+    }
     
+    public Player getPlayer()
+    {
+        return player;
+    }
+
+    public Map getMap()
+    {
+        return map;
+    }
+
+    public void setIsFrozen(boolean isFrozen)
+    {
+        this.isFrozen = isFrozen;
+    }
+    
+    public boolean getIsFrozen()
+    {
+        return isFrozen;
+    }
 }

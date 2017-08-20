@@ -11,12 +11,12 @@ import montours_and_men.game.entity.Entity;
 import montours_and_men.game.entity.entity_data.Transform;
 import montours_and_men.utilities.Settings;
 
-public final class Renderer
+public final class ViewRenderer
 {
     //Distance of the ray starting point to the projection plane
     private final double playerToProjectionDistance;
     
-    public Renderer()
+    public ViewRenderer()
     {
         Settings settings = Start.resources.settings;
         

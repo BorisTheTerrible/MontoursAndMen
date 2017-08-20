@@ -6,6 +6,7 @@ package montours_and_men.network.packets;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.StandardCharsets;
 import montours_and_men.Start;
 import montours_and_men.utilities.Settings;
 
@@ -30,11 +31,14 @@ public final class HandshakePacket extends Packet
     @Override
     public byte[] getBytes()
     {
-        ByteBuffer byteBuffer = ByteBuffer.allocate(4 + 4 + 1 + username.length());
+        byte[] usernameBytes = username.getBytes(StandardCharsets.US_ASCII);
+        
+        ByteBuffer byteBuffer = ByteBuffer.allocate(4 + 4 + 1 + usernameBytes.length);
         byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
         byteBuffer.putInt(packetId);
         byteBuffer.putInt(version);
         byteBuffer.put(Packet.packageBoolean(isBigEndian));
+        byteBuffer.put(usernameBytes);
         
         return byteBuffer.array();
     }
